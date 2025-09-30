@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: mcq_generator
+Version: 0.1
+Author: Shreya Chinnari
+Author-email: shreya16180@gmail.com
+Requires-Dist: openai
+Requires-Dist: langchain
+Requires-Dist: streamlit
+Requires-Dist: python-dotenv
+Requires-Dist: pypdf2
