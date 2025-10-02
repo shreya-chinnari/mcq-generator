@@ -1,0 +1,52 @@
+{
+	"1": {
+		"mcq": "When was Sputnik 1 launched, marking the start of the Space Race?",
+		"options": {
+			"a": "1957",
+			"b": "1961",
+			"c": "1969",
+			"d": "1977"
+		},
+		"correct": "a"
+	},
+	"2": {
+		"mcq": "Who was the first human to travel into space?",
+		"options": {
+			"a": "Neil Armstrong",
+			"b": "Yuri Gagarin",
+			"c": "Buzz Aldrin",
+			"d": "John Glenn"
+		},
+		"correct": "b"
+	},
+	"3": {
+		"mcq": "Which mission first landed humans on the Moon?",
+		"options": {
+			"a": "Apollo 11",
+			"b": "Vostok 1",
+			"c": "Skylab",
+			"d": "Mir"
+		},
+		"correct": "a"
+	},
+	"4": {
+		"mcq": "Which international project allows astronauts from multiple countries to work together in space?",
+		"options": {
+			"a": "Skylab",
+			"b": "Mir",
+			"c": "International Space Station (ISS)",
+			"d": "Space Shuttle Program"
+		},
+		"correct": "c"
+	},
+	"5": {
+		"mcq": "Which private company is pioneering reusable rockets and aims to colonize Mars?",
+		"options": {
+			"a": "Blue Origin",
+			"b": "Virgin Galactic",
+			"c": "SpaceX",
+			"d": "NASA"
+		},
+		"correct": "c"
+	}
+}
