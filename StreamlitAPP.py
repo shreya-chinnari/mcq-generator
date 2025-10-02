@@ -26,6 +26,10 @@ with open(file_path, "r") as file:
 # creating a title for the app
 st.title("MCQ Generator App with Langchain")
 
+# Cute disclaimer
+st.info("⚠️ Heads up! Currently, the OpenAI API integration is **disabled** in the Live deployment to avoid high costs 💰, but you can see the demo screenshots and working flow in the README. 🚀✨")
+
+
 # create a form
 with st.form("user inputs"):
    #upload file
