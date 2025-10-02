@@ -10,10 +10,11 @@ from src.mcqgenerator import logger
 
 
 # Importing necessary LangChain modules
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-from langchain.chains import SequentialChain
+# -- from langchain.chains import LLMChain
+from langchain_core.runnables import RunnableSequence
+
 
 # 1️⃣ Load environment variables from the .env file
 load_dotenv()
@@ -46,12 +47,13 @@ quiz_generation_prompt = PromptTemplate(
     template=template
 )
 
-quiz_chain = LLMChain(
-    llm=llm,
-    prompt=quiz_generation_prompt,
-    output_key="quiz",
-    verbose=True
-)
+# -- quiz_chain = LLMChain(
+#     llm=llm,
+#     prompt=quiz_generation_prompt,
+#     output_key="quiz",
+#     verbose=True
+# )
+quiz_chain = quiz_generation_prompt | llm
 
 # 5️⃣ Prompt for evaluating MCQs
 template2 = """
@@ -71,20 +73,22 @@ quiz_evaluation_prompt = PromptTemplate(
     template=template2
 )
 
-review_chain = LLMChain(
-    llm=llm,
-    prompt=quiz_evaluation_prompt,
-    output_key="review",
-    verbose=True
-)
+# -- review_chain = LLMChain(
+#     llm=llm,
+#     prompt=quiz_evaluation_prompt,
+#     output_key="review",
+#     verbose=True
+# )
+review_chain = quiz_evaluation_prompt | llm
 
 # 6️⃣ Combine both chains sequentially
-generate_evaluate_chain = SequentialChain(
-    chains=[quiz_chain, review_chain],
-    input_variables=["text", "number", "subject", "tone", "response_json"],
-    output_variables=["quiz", "review"],
-    verbose=True,
-)
+# -- generate_evaluate_chain = SequentialChain(
+#     chains=[quiz_chain, review_chain],
+#     input_variables=["text", "number", "subject", "tone", "response_json"],
+#     output_variables=["quiz", "review"],
+#     verbose=True,
+# )
+generate_evaluate_chain = RunnableSequence(first=quiz_chain, middle=[], last=review_chain)
 
 # ✅ Use logging for info/debug inside notebook or script
 logging.info("MCQ Generator pipeline successfully initialized.")
