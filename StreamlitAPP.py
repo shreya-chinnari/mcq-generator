@@ -14,8 +14,14 @@ import streamlit as st
 from langchain_community.callbacks.manager import get_openai_callback
 
 # loading json file
-with open('D:\SACHI\GEN-AI\mcq-generator\Response.json','r') as file:
-   RESPONSE_JSON = json.load(file)
+# with open('D:\SACHI\GEN-AI\mcq-generator\Response.json','r') as file:
+#    RESPONSE_JSON = json.load(file)
+import os
+
+file_path = os.path.join(os.path.dirname(__file__), "Response.json")
+with open(file_path, "r") as file:
+    data = file.read()
+
    
 # creating a title for the app
 st.title("MCQ Generator App with Langchain")
